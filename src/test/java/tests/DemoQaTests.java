@@ -13,15 +13,15 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static specs.LoginSpec.*;
 
-public class DemoQaTests extends TestBaseAPI {
+public class DemoQaTests extends TestBase {
 
 
     TestData testData = new TestData();
 
     @Test
     @Owner("Kwlad1ck")
-    @DisplayName("Запрос создание юзера")
-    void createUserTest() {
+    @DisplayName("Авторизация юзреа")
+    void emptyBookListTest() {
         LoginBodyModel loginData = new LoginBodyModel();
         loginData.setUserName(testData.username);
         loginData.setPassword(testData.password);
@@ -31,7 +31,7 @@ public class DemoQaTests extends TestBaseAPI {
                         .body(loginData)
 
                         .when()
-                        .post("/login")
+                        .post("/Account/v1/Login")
 
                         .then()
                         .spec(loginUserResponseSpec)
@@ -50,7 +50,6 @@ public class DemoQaTests extends TestBaseAPI {
                 new Cookie("expires", loginResponseModel.getExpires())
         );
 
-        open("https://demoqa.com/profile");
-        sleep(10000);
+        open("/profile");
     }
 }
