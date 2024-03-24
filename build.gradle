@@ -33,9 +33,12 @@ dependencies {
             "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter:5.10.2",
+            'com.codeborne:selenide:6.19.1',
             "org.assertj:assertj-core:3.25.3",
-            "org.slf4j:slf4j-simple:2.0.12"
+            "org.slf4j:slf4j-simple:2.0.12",
+            'org.aeonbits.owner:owner:1.0.12'
 
     )
 }
