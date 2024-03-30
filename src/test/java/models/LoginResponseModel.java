@@ -1,11 +1,12 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginResponseModel {
 
-    String userId, username, password, token, expires, created_date;
+    String userId, token, expires;
 
-    Boolean isActive;
 }

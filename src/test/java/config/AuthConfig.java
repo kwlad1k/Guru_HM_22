@@ -10,7 +10,7 @@ import org.aeonbits.owner.Config;
 
 public interface AuthConfig extends Config {
 
-    @Key("user.name")
+    @Key("user.login.name")
     String userName();
 
     @Key("user.password")

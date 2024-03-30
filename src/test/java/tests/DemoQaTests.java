@@ -6,6 +6,7 @@ import models.LoginResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
+import pages.ProfilePage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -15,7 +16,7 @@ import static specs.LoginSpec.*;
 
 public class DemoQaTests extends TestBase {
 
-
+    ProfilePage profilePage = new ProfilePage();
     TestData testData = new TestData();
 
     @Test
@@ -37,12 +38,10 @@ public class DemoQaTests extends TestBase {
                         .spec(loginUserResponseSpec)
                         .statusCode(200)
                         .extract().as(LoginResponseModel.class));
-
-
+        
         open("https://demoqa.com/images/Toolsqa.jpg");
         getWebDriver().manage().addCookie(
-                new Cookie("userId", loginResponseModel.getUserId())
-        );
+                new Cookie("userID", loginResponseModel.getUserId()));
         getWebDriver().manage().addCookie(
                 new Cookie("token", loginResponseModel.getToken())
         );
@@ -50,6 +49,7 @@ public class DemoQaTests extends TestBase {
                 new Cookie("expires", loginResponseModel.getExpires())
         );
 
-        open("/profile");
+        profilePage.openPage()
+                .checkDataElement();
     }
 }
