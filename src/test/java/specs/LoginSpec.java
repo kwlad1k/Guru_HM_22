@@ -14,7 +14,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 public class LoginSpec {
 
     public static final RequestSpecification defaultLoggingSpec = with()
-            .filter(withCustomTemplates()) 
+            .filter(withCustomTemplates())
             .log().method()
             .log().headers()
             .log().body()
