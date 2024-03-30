@@ -8,7 +8,7 @@ import pages.ProfilePage;
 
 public class DemoQaTests extends TestBase {
 
-    ProfilePage profilePage = new ProfilePage();
+    final ProfilePage profilePage = new ProfilePage();
 
     @Test
     @WithLogin

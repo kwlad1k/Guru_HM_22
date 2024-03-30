@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProfilePage {
 
-    private SelenideElement
-            noDataElemet = $(".rt-noData");
+    private final SelenideElement
+            noDataElement = $(".rt-noData");
 
     @Step("Открытия страницы профиля")
     public ProfilePage openProfilePage() {
@@ -21,8 +21,8 @@ public class ProfilePage {
     @Step("Проверка видимости элемента")
     public ProfilePage checkDataElement() {
 
-        noDataElemet.shouldBe(visible);
-        noDataElemet.shouldHave(text("No rows found"));
+        noDataElement.shouldBe(visible);
+        noDataElement.shouldHave(text("No rows found"));
 
         return this;
     }

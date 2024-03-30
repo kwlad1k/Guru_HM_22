@@ -17,7 +17,7 @@ import static specs.LoginSpec.loginUserResponseSpec;
 
 public class LoginExtension implements BeforeEachCallback {
 
-    TestData testData = new TestData();
+    final TestData testData = new TestData();
     @Step("Авторизация юзера через API")
     @Override
     public void beforeEach(ExtensionContext context) {
