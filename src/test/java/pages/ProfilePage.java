@@ -12,7 +12,7 @@ public class ProfilePage {
             noDataElemet = $(".rt-noData");
 
     @Step("Открытия страницы профиля")
-    public ProfilePage openPage() {
+    public ProfilePage openProfilePage() {
         open("/profile");
 
         return this;

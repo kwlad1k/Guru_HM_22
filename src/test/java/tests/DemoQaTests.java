@@ -16,7 +16,7 @@ public class DemoQaTests extends TestBase {
     @DisplayName("Проверка пустого списка книг")
     void emptyBookListWithLoginExtensionsTest() {
 
-        profilePage.openPage()
+        profilePage.openProfilePage()
                 .checkDataElement();
     }
 }
