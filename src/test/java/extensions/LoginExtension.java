@@ -36,16 +36,19 @@ public class LoginExtension implements BeforeEachCallback {
                         .spec(loginUserResponseSpec)
                         .statusCode(200)
                         .extract().as(LoginResponseModel.class));
+        step("Открытие предварительной ссылки", () ->
+                open("/images/Toolsqa.jpg"));
 
-        open("https://demoqa.com/images/Toolsqa.jpg");
-        getWebDriver().manage().addCookie(
-                new Cookie("userID", loginResponseModel.getUserId()));
-        getWebDriver().manage().addCookie(
-                new Cookie("token", loginResponseModel.getToken())
-        );
-        getWebDriver().manage().addCookie(
-                new Cookie("expires", loginResponseModel.getExpires())
-        );
+        step("Подкладывание куки в браузер для авторизации учетной записи", () -> {
+            getWebDriver().manage().addCookie(
+                    new Cookie("userID", loginResponseModel.getUserId()));
+            getWebDriver().manage().addCookie(
+                    new Cookie("token", loginResponseModel.getToken())
+            );
+            getWebDriver().manage().addCookie(
+                    new Cookie("expires", loginResponseModel.getExpires())
+            );
+        });
 
     }
 }
