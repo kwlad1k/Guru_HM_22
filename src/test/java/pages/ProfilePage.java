@@ -18,7 +18,7 @@ public class ProfilePage {
         return this;
     }
 
-    @Step("Проверка видимости элемента")
+    @Step("Проверка видимости пустой таблицы книг")
     public ProfilePage checkDataElement() {
 
         noDataElement.shouldBe(visible);

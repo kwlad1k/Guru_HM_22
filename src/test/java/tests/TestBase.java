@@ -50,6 +50,11 @@ public class TestBase {
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
         Attach.screenshotAs("Screenshot");
         Attach.pageSource();
+
+        if (!driverConfig.browserName().equalsIgnoreCase("firefox")) {
+            Attach.browserConsoleLogs();
+        }
+
         Attach.browserConsoleLogs();
         if (driverConfig.remoteMode()) {
             Attach.addVideo();
