@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class TestBase {
 
@@ -50,8 +51,7 @@ public class TestBase {
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
         Attach.screenshotAs("Screenshot");
         Attach.pageSource();
-
-        if (!driverConfig.browserName().equalsIgnoreCase("firefox")) {
+        if (!Objects.equals(Configuration.browser, "firefox")) {
             Attach.browserConsoleLogs();
         }
 
