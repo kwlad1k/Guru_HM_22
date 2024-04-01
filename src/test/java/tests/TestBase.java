@@ -54,8 +54,6 @@ public class TestBase {
         if (!Objects.equals(Configuration.browser, "firefox")) {
             Attach.browserConsoleLogs();
         }
-
-        Attach.browserConsoleLogs();
         if (driverConfig.remoteMode()) {
             Attach.addVideo();
         }
